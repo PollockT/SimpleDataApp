@@ -87,7 +87,7 @@ namespace SimpleDataApp
             this.btnPlaceOrder.TabIndex = 3;
             this.btnPlaceOrder.Text = "Place Order";
             this.btnPlaceOrder.UseVisualStyleBackColor = true;
-            this.btnPlaceOrder.Click += new System.EventHandler(this.button2_Click);
+            this.btnPlaceOrder.Click += new System.EventHandler(this.btnPlaceOrder_Click);
             // 
             // btnAddFinish
             // 
@@ -108,7 +108,7 @@ namespace SimpleDataApp
             this.btnAddAnotherAccount.TabIndex = 5;
             this.btnAddAnotherAccount.Text = "Add Another Account";
             this.btnAddAnotherAccount.UseVisualStyleBackColor = true;
-            this.btnAddAnotherAccount.Click += new System.EventHandler(this.btnAddAnotherAccount_Click_1);
+            this.btnAddAnotherAccount.Click += new System.EventHandler(this.btnAddAnotherAccount_Click);
             // 
             // txtCustomerName
             // 
@@ -172,11 +172,7 @@ namespace SimpleDataApp
             // 
             this.numOrderAmount.AccessibleName = "numOrderAmount";
             this.numOrderAmount.Location = new System.Drawing.Point(147, 210);
-            this.numOrderAmount.Maximum = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            0});
+            this.numOrderAmount.Maximum = new decimal(new int[] {5000,0,0,0});
             this.numOrderAmount.Name = "numOrderAmount";
             this.numOrderAmount.Size = new System.Drawing.Size(120, 20);
             this.numOrderAmount.TabIndex = 12;

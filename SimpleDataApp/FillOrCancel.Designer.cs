@@ -109,6 +109,7 @@
             this.btnCancelOrder.TabIndex = 6;
             this.btnCancelOrder.Text = "Cancel Order";
             this.btnCancelOrder.UseVisualStyleBackColor = true;
+            this.btnCancelOrder.Click += new System.EventHandler(btnCancelOrder_Click);
             // 
             // btnFillOrder
             // 
@@ -119,6 +120,7 @@
             this.btnFillOrder.TabIndex = 7;
             this.btnFillOrder.Text = "Fill Order";
             this.btnFillOrder.UseVisualStyleBackColor = true;
+            this.btnFillOrder.Click += new System.EventHandler(btnFillOrder_Click);
             // 
             // btnFinishUpdates
             // 
@@ -129,6 +131,7 @@
             this.btnFinishUpdates.TabIndex = 8;
             this.btnFinishUpdates.Text = "Finish";
             this.btnFinishUpdates.UseVisualStyleBackColor = true;
+            this.btnFinishUpdates.Click += new System.EventHandler(btnFinishUpdates_Click);
             // 
             // FillOrCancel
             // 
@@ -150,6 +153,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void BtnFillOrder_Click(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion

@@ -54,6 +54,7 @@
             this.btnGoToFillOrCancel.TabIndex = 1;
             this.btnGoToFillOrCancel.Text = "Fill or Cancel Orders";
             this.btnGoToFillOrCancel.UseVisualStyleBackColor = true;
+            this.btnGoToFillOrCancel.Click += new System.EventHandler(this.btnGoToFillOrCancel_Click);
             // 
             // label1
             // 
@@ -74,7 +75,7 @@
             this.btnExit.TabIndex = 3;
             this.btnExit.Text = "Quit";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // Navigation
             // 
