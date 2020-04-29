@@ -28,9 +28,9 @@ namespace SimpleDataApp.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=TC-LAPTOP;Initial Catalog=Sales;Integrated Security=True;Pooling=Fals" +
             "e")]
-        public string SalesConnectionString {
+        public string connString {
             get {
-                return ((string)(this["SalesConnectionString"]));
+                return ((string)(this["connString"]));
             }
         }
     }

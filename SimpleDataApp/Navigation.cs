@@ -22,8 +22,10 @@ namespace SimpleDataApp
         /// </summary>
         private void btnGoToAdd_Click(object sender, EventArgs e)
         {
-            Form frm = new NewCustomer();
-            frm.Show();
+            using (Form frm = new NewCustomer())
+            {
+                frm.Show();
+            }
         }
 
         /// <summary>
@@ -31,8 +33,10 @@ namespace SimpleDataApp
         /// </summary>
         private void btnGoToFillOrCancel_Click(object sender, EventArgs e)
         {
-            Form frm = new FillOrCancel();
-            frm.ShowDialog();
+            using (Form frm = new FillOrCancel())
+            {
+                frm.ShowDialog();
+            }
         }
 
         /// <summary>
@@ -42,5 +46,7 @@ namespace SimpleDataApp
         {
             this.Close();
         }
+
+      
     }
 }

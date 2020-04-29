@@ -108,6 +108,7 @@ namespace SimpleDataApp
             this.btnAddAnotherAccount.TabIndex = 5;
             this.btnAddAnotherAccount.Text = "Add Another Account";
             this.btnAddAnotherAccount.UseVisualStyleBackColor = true;
+            this.btnAddAnotherAccount.Click += new System.EventHandler(this.btnAddAnotherAccount_Click_1);
             // 
             // txtCustomerName
             // 
@@ -116,7 +117,6 @@ namespace SimpleDataApp
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Size = new System.Drawing.Size(100, 20);
             this.txtCustomerName.TabIndex = 6;
-            this.txtCustomerName.TextChanged += new System.EventHandler(this.txtCustomerName_TextChanged);
             // 
             // txtCustomerID
             // 

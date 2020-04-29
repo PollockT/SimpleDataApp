@@ -4,12 +4,12 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="SalesConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SalesConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SimpleDataApp.Properties.Settings.GlobalReference.Default.SalesConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="connString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="connString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SimpleDataApp.Properties.Settings.GlobalReference.Default.connString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CustomerTableAdapter" GeneratorDataComponentClassName="CustomerTableAdapter" Name="Customer" UserDataComponentName="CustomerTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="SalesConnectionString (Settings)" DbObjectName="Sales.Sales.Customer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="connString (Settings)" DbObjectName="Sales.Sales.Customer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [Sales].[Customer] WHERE (([CustomerID] = @Original_CustomerID) AND ([CustomerName] = @Original_CustomerName) AND ([YTDOrders] = @Original_YTDOrders) AND ([YTDSales] = @Original_YTDSales))</CommandText>
@@ -66,7 +66,7 @@ SELECT CustomerID, CustomerName, YTDOrders, YTDSales FROM Sales.Customer WHERE (
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OrdersTableAdapter" GeneratorDataComponentClassName="OrdersTableAdapter" Name="Orders" UserDataComponentName="OrdersTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="SalesConnectionString (Settings)" DbObjectName="Sales.Sales.Orders" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="connString (Settings)" DbObjectName="Sales.Sales.Orders" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [Sales].[Orders] WHERE (([CustomerID] = @Original_CustomerID) AND ([OrderID] = @Original_OrderID) AND ([OrderDate] = @Original_OrderDate) AND ((@IsNull_FilledDate = 1 AND [FilledDate] IS NULL) OR ([FilledDate] = @Original_FilledDate)) AND ([Status] = @Original_Status) AND ([Amount] = @Original_Amount))</CommandText>
@@ -135,7 +135,7 @@ SELECT CustomerID, OrderID, OrderDate, FilledDate, Status, Amount FROM Sales.Ord
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="uspShowOrderDetailsTableAdapter" GeneratorDataComponentClassName="uspShowOrderDetailsTableAdapter" Name="uspShowOrderDetails" UserDataComponentName="uspShowOrderDetailsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="SalesConnectionString (Settings)" DbObjectName="Sales.Sales.uspShowOrderDetails" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="connString (Settings)" DbObjectName="Sales.Sales.uspShowOrderDetails" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>Sales.uspShowOrderDetails</CommandText>
@@ -158,7 +158,7 @@ SELECT CustomerID, OrderID, OrderDate, FilledDate, Status, Amount FROM Sales.Ord
           </TableAdapter>
         </Tables>
         <Sources>
-          <DbSource ConnectionRef="SalesConnectionString (Settings)" DbObjectName="Sales.Sales.uspCancelOrder" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="uspCancelOrder" MethodsParameterType="CLR" Modifier="Public" Name="uspCancelOrder" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="uspCancelOrder">
+          <DbSource ConnectionRef="connString (Settings)" DbObjectName="Sales.Sales.uspCancelOrder" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="uspCancelOrder" MethodsParameterType="CLR" Modifier="Public" Name="uspCancelOrder" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="uspCancelOrder">
             <SelectCommand>
               <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                 <CommandText>Sales.uspCancelOrder</CommandText>
@@ -169,7 +169,7 @@ SELECT CustomerID, OrderID, OrderDate, FilledDate, Status, Amount FROM Sales.Ord
               </DbCommand>
             </SelectCommand>
           </DbSource>
-          <DbSource ConnectionRef="SalesConnectionString (Settings)" DbObjectName="Sales.Sales.uspFillOrder" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="uspFillOrder" MethodsParameterType="CLR" Modifier="Public" Name="uspFillOrder" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="uspFillOrder">
+          <DbSource ConnectionRef="connString (Settings)" DbObjectName="Sales.Sales.uspFillOrder" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="uspFillOrder" MethodsParameterType="CLR" Modifier="Public" Name="uspFillOrder" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="uspFillOrder">
             <SelectCommand>
               <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                 <CommandText>Sales.uspFillOrder</CommandText>
@@ -181,7 +181,7 @@ SELECT CustomerID, OrderID, OrderDate, FilledDate, Status, Amount FROM Sales.Ord
               </DbCommand>
             </SelectCommand>
           </DbSource>
-          <DbSource ConnectionRef="SalesConnectionString (Settings)" DbObjectName="Sales.Sales.uspNewCustomer" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="uspNewCustomer" MethodsParameterType="CLR" Modifier="Public" Name="uspNewCustomer" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="uspNewCustomer">
+          <DbSource ConnectionRef="connString (Settings)" DbObjectName="Sales.Sales.uspNewCustomer" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="uspNewCustomer" MethodsParameterType="CLR" Modifier="Public" Name="uspNewCustomer" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="uspNewCustomer">
             <SelectCommand>
               <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                 <CommandText>Sales.uspNewCustomer</CommandText>
@@ -193,7 +193,7 @@ SELECT CustomerID, OrderID, OrderDate, FilledDate, Status, Amount FROM Sales.Ord
               </DbCommand>
             </SelectCommand>
           </DbSource>
-          <DbSource ConnectionRef="SalesConnectionString (Settings)" DbObjectName="Sales.Sales.uspPlaceNewOrder" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="uspPlaceNewOrder" MethodsParameterType="CLR" Modifier="Public" Name="uspPlaceNewOrder" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="uspPlaceNewOrder">
+          <DbSource ConnectionRef="connString (Settings)" DbObjectName="Sales.Sales.uspPlaceNewOrder" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="uspPlaceNewOrder" MethodsParameterType="CLR" Modifier="Public" Name="uspPlaceNewOrder" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="uspPlaceNewOrder">
             <SelectCommand>
               <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                 <CommandText>Sales.uspPlaceNewOrder</CommandText>
@@ -214,7 +214,7 @@ SELECT CustomerID, OrderID, OrderDate, FilledDate, Status, Amount FROM Sales.Ord
   <xs:element name="SalesDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="SalesDataSet" msprop:Generator_UserDSName="SalesDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Customer" msprop:Generator_TableClassName="CustomerDataTable" msprop:Generator_TableVarName="tableCustomer" msprop:Generator_TablePropName="Customer" msprop:Generator_RowDeletingName="CustomerRowDeleting" msprop:Generator_RowChangingName="CustomerRowChanging" msprop:Generator_RowEvHandlerName="CustomerRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerRowDeleted" msprop:Generator_UserTableName="Customer" msprop:Generator_RowChangedName="CustomerRowChanged" msprop:Generator_RowEvArgName="CustomerRowChangeEvent" msprop:Generator_RowClassName="CustomerRow">
+        <xs:element name="Customer" msprop:Generator_TableClassName="CustomerDataTable" msprop:Generator_TableVarName="tableCustomer" msprop:Generator_RowChangedName="CustomerRowChanged" msprop:Generator_TablePropName="Customer" msprop:Generator_RowDeletingName="CustomerRowDeleting" msprop:Generator_RowChangingName="CustomerRowChanging" msprop:Generator_RowEvHandlerName="CustomerRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerRowDeleted" msprop:Generator_RowClassName="CustomerRow" msprop:Generator_UserTableName="Customer" msprop:Generator_RowEvArgName="CustomerRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CustomerID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCustomerID" msprop:Generator_ColumnPropNameInRow="CustomerID" msprop:Generator_ColumnPropNameInTable="CustomerIDColumn" msprop:Generator_UserColumnName="CustomerID" type="xs:int" />
@@ -230,7 +230,7 @@ SELECT CustomerID, OrderID, OrderDate, FilledDate, Status, Amount FROM Sales.Ord
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Orders" msprop:Generator_TableClassName="OrdersDataTable" msprop:Generator_TableVarName="tableOrders" msprop:Generator_TablePropName="Orders" msprop:Generator_RowDeletingName="OrdersRowDeleting" msprop:Generator_RowChangingName="OrdersRowChanging" msprop:Generator_RowEvHandlerName="OrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdersRowDeleted" msprop:Generator_UserTableName="Orders" msprop:Generator_RowChangedName="OrdersRowChanged" msprop:Generator_RowEvArgName="OrdersRowChangeEvent" msprop:Generator_RowClassName="OrdersRow">
+        <xs:element name="Orders" msprop:Generator_TableClassName="OrdersDataTable" msprop:Generator_TableVarName="tableOrders" msprop:Generator_RowChangedName="OrdersRowChanged" msprop:Generator_TablePropName="Orders" msprop:Generator_RowDeletingName="OrdersRowDeleting" msprop:Generator_RowChangingName="OrdersRowChanging" msprop:Generator_RowEvHandlerName="OrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdersRowDeleted" msprop:Generator_RowClassName="OrdersRow" msprop:Generator_UserTableName="Orders" msprop:Generator_RowEvArgName="OrdersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CustomerID" msprop:Generator_ColumnVarNameInTable="columnCustomerID" msprop:Generator_ColumnPropNameInRow="CustomerID" msprop:Generator_ColumnPropNameInTable="CustomerIDColumn" msprop:Generator_UserColumnName="CustomerID" type="xs:int" />
@@ -248,7 +248,7 @@ SELECT CustomerID, OrderID, OrderDate, FilledDate, Status, Amount FROM Sales.Ord
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="uspShowOrderDetails" msprop:Generator_TableClassName="uspShowOrderDetailsDataTable" msprop:Generator_TableVarName="tableuspShowOrderDetails" msprop:Generator_TablePropName="uspShowOrderDetails" msprop:Generator_RowDeletingName="uspShowOrderDetailsRowDeleting" msprop:Generator_RowChangingName="uspShowOrderDetailsRowChanging" msprop:Generator_RowEvHandlerName="uspShowOrderDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="uspShowOrderDetailsRowDeleted" msprop:Generator_UserTableName="uspShowOrderDetails" msprop:Generator_RowChangedName="uspShowOrderDetailsRowChanged" msprop:Generator_RowEvArgName="uspShowOrderDetailsRowChangeEvent" msprop:Generator_RowClassName="uspShowOrderDetailsRow">
+        <xs:element name="uspShowOrderDetails" msprop:Generator_TableClassName="uspShowOrderDetailsDataTable" msprop:Generator_TableVarName="tableuspShowOrderDetails" msprop:Generator_RowChangedName="uspShowOrderDetailsRowChanged" msprop:Generator_TablePropName="uspShowOrderDetails" msprop:Generator_RowDeletingName="uspShowOrderDetailsRowDeleting" msprop:Generator_RowChangingName="uspShowOrderDetailsRowChanging" msprop:Generator_RowEvHandlerName="uspShowOrderDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="uspShowOrderDetailsRowDeleted" msprop:Generator_RowClassName="uspShowOrderDetailsRow" msprop:Generator_UserTableName="uspShowOrderDetails" msprop:Generator_RowEvArgName="uspShowOrderDetailsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CustomerName" msprop:Generator_ColumnVarNameInTable="columnCustomerName" msprop:Generator_ColumnPropNameInRow="CustomerName" msprop:Generator_ColumnPropNameInTable="CustomerNameColumn" msprop:Generator_UserColumnName="CustomerName">
@@ -284,7 +284,7 @@ SELECT CustomerID, OrderID, OrderDate, FilledDate, Status, Amount FROM Sales.Ord
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Orders_Customer_CustID" msdata:parent="Customer" msdata:child="Orders" msdata:parentkey="CustomerID" msdata:childkey="CustomerID" msprop:Generator_UserChildTable="Orders" msprop:Generator_ChildPropName="GetOrdersRows" msprop:Generator_UserRelationName="FK_Orders_Customer_CustID" msprop:Generator_ParentPropName="CustomerRow" msprop:Generator_RelationVarName="relationFK_Orders_Customer_CustID" msprop:Generator_UserParentTable="Customer" />
+      <msdata:Relationship name="FK_Orders_Customer_CustID" msdata:parent="Customer" msdata:child="Orders" msdata:parentkey="CustomerID" msdata:childkey="CustomerID" msprop:Generator_UserChildTable="Orders" msprop:Generator_ChildPropName="GetOrdersRows" msprop:Generator_UserRelationName="FK_Orders_Customer_CustID" msprop:Generator_RelationVarName="relationFK_Orders_Customer_CustID" msprop:Generator_UserParentTable="Customer" msprop:Generator_ParentPropName="CustomerRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
