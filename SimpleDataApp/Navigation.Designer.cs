@@ -43,6 +43,7 @@
             this.btnGoToAdd.TabIndex = 0;
             this.btnGoToAdd.Text = "Add an Account";
             this.btnGoToAdd.UseVisualStyleBackColor = true;
+            this.btnGoToAdd.Click += new System.EventHandler(this.btnGoToAdd_Click);
             // 
             // btnGoToFillOrCancel
             // 
